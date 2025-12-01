@@ -1,4 +1,5 @@
 import "./App.css";
+import AddNewNote from "./components/AddNewNote";
 function App() {
   return (
     <div className="container">
@@ -6,7 +7,7 @@ function App() {
         <h1>NoteApp</h1>
       </div>
       <div className="note-app">
-        <div className="add-new-note">add new note form</div>
+        <AddNewNote />
         <div className="note-container">note lists</div>
       </div>
     </div>
