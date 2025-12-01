@@ -4,8 +4,22 @@ function AddNewNote() {
   const [description, setDescription] = useState("");
   const addNewNoteHandler = (e) => {
     e.preventDefault();
-    setTitle("");
-    setDescription("");
+    if (title && description) {
+      const newNote = [
+        {
+          title: title,
+          desc: description,
+          id: Date.now(),
+          completed: false,
+          createAt: new Date().toISOString(),
+        },
+      ];
+      setTitle("");
+      setDescription("");
+      console.log(newNote);
+    } else {
+      alert("Please fill in the title and description");
+    }
   };
   return (
     <div className="add-new-note">
