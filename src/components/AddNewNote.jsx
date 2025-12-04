@@ -2,6 +2,7 @@ import { useState } from "react";
 function AddNewNote() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [notes, setNotes] = useState([]);
   const addNewNoteHandler = (e) => {
     e.preventDefault();
     if (title && description) {
@@ -14,9 +15,10 @@ function AddNewNote() {
           createAt: new Date().toISOString(),
         },
       ];
+      setNotes((prevNotes) => [...prevNotes, newNote]);
       setTitle("");
       setDescription("");
-      console.log(newNote);
+      
     } else {
       alert("Please fill in the title and description");
     }
