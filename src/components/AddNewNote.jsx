@@ -6,15 +6,14 @@ function AddNewNote({ onAddNote }) {
   const addNewNoteHandler = (e) => {
     e.preventDefault();
     if (title && description) {
-      const newNote = [
+      const newNote = 
         {
           title: title,
           desc: description,
           id: Date.now(),
           completed: false,
           createAt: new Date().toISOString(),
-        },
-      ];
+        }
       onAddNote(newNote);
       setTitle("");
       setDescription("");

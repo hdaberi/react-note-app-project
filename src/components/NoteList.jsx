@@ -1,11 +1,38 @@
-
-
-function NoteList({notes}) {
+function NoteList({ notes }) {
+  console.log(notes)
   return (
-    <div className="note-container">note lists
-    
+    <div className="note-container">
+      <div className="note-list">
+        {notes.map((note) => (
+          <NoteItem key={note.id} note={note} />
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default NoteList
+export default NoteList;
+
+function NoteItem({ note }) {
+  return (
+    <div className="note-item">
+      <div className="note-item__header">
+        <div className="note-item__content">
+          <h2 className="title">{note.title}</h2>
+          <p className="desc">{note.desc}</p>
+        </div>
+        <div className="note-item__tools">
+          <button className="btn btn--danger">Delete</button>
+          <input type="checkbox" name="" id="" />
+        </div>
+      </div>
+      <div className="note-item__footer">
+        {new Date(note.createAt).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </div>
+    </div>
+  );
+}
