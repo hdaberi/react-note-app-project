@@ -1,10 +1,10 @@
-function NoteList({ notes }) {
+function NoteList({ notes, deleteNoteHandler }) {
   console.log(notes)
   return (
     <div className="note-container">
       <div className="note-list">
         {notes.map((note) => (
-          <NoteItem key={note.id} note={note} />
+          <NoteItem key={note.id} note={note} deleteNoteHandler={deleteNoteHandler} />
         ))}
       </div>
     </div>
@@ -13,7 +13,7 @@ function NoteList({ notes }) {
 
 export default NoteList;
 
-function NoteItem({ note }) {
+function NoteItem({ note, deleteNoteHandler }) {
   return (
     <div className="note-item">
       <div className="note-item__header">
@@ -22,7 +22,7 @@ function NoteItem({ note }) {
           <p className="desc">{note.desc}</p>
         </div>
         <div className="note-item__tools">
-          <button className="btn btn--danger">Delete</button>
+          <button className="btn btn--danger" onClick={()=>deleteNoteHandler(note.id)}>Delete</button>
           <input type="checkbox" name="" id="" />
         </div>
       </div>
