@@ -1,7 +1,9 @@
+import NoteStatuse from "./NoteStatuse";
 function NoteList({ notes, deleteNoteHandler, onCompleteNote }) {
   console.log(notes);
   return (
     <div className="note-container">
+      <NoteStatuse notes={notes} />
       <div className="note-list">
         {notes.map((note) => (
           <NoteItem
