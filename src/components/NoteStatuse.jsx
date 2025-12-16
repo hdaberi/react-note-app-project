@@ -1,15 +1,16 @@
 function NoteStatuse({ notes }) {
   return (
+
     <ul className="note-status">
       <li className="role-badge role-badge--all">
-        Total Notes: <span>{notes.length}</span>
+        All Notes: <span>{notes.length}</span>
       </li>
       <li className="role-badge role-badge--completed">
-        Completed Notes:{" "}
+        Completed:{" "}
         <span>{notes.filter((note) => note.completed).length}</span>
       </li>
       <li className="role-badge role-badge--uncompleted">
-        Pending Notes:{" "}
+        Uncompleted:{" "}
         <span>{notes.filter((note) => !note.completed).length}</span>
       </li>
     </ul>

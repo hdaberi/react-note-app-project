@@ -5,14 +5,20 @@ function NoteList({ notes, deleteNoteHandler, onCompleteNote }) {
     <div className="note-container">
       <NoteStatuse notes={notes} />
       <div className="note-list">
-        {notes.map((note) => (
-          <NoteItem
-            key={note.id}
-            note={note}
-            onCompleteNote={onCompleteNote}
-            deleteNoteHandler={deleteNoteHandler}
-          />
-        ))}
+        {notes.length ? (
+          notes.map((note) => (
+            <NoteItem
+              key={note.id}
+              note={note}
+              onCompleteNote={onCompleteNote}
+              deleteNoteHandler={deleteNoteHandler}
+            />
+          ))
+        ) : (
+          <div className="note-item">
+            <p>You don't have any notes yet. Create your first note to get started!</p>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -29,7 +35,6 @@ function NoteItem({ note, deleteNoteHandler, onCompleteNote }) {
           <p className="desc">{note.desc}</p>
         </div>
         <div className="note-item__tools">
-          
           <input
             type="checkbox"
             name={note.id}
