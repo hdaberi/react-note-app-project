@@ -29,12 +29,7 @@ function NoteItem({ note, deleteNoteHandler, onCompleteNote }) {
           <p className="desc">{note.desc}</p>
         </div>
         <div className="note-item__tools">
-          <button
-            className="btn btn--danger"
-            onClick={() => deleteNoteHandler(note.id)}
-          >
-            Delete
-          </button>
+          
           <input
             type="checkbox"
             name={note.id}
@@ -42,6 +37,12 @@ function NoteItem({ note, deleteNoteHandler, onCompleteNote }) {
             value={note.id}
             onChange={(event) => onCompleteNote(event.target.value)}
           />
+          <button
+            className="btn btn--danger"
+            onClick={() => deleteNoteHandler(note.id)}
+          >
+            Delete
+          </button>
         </div>
       </div>
       <div className="note-item__footer">

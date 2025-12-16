@@ -116,6 +116,8 @@ select {
     color: #fff;
     background-color: #d9534f;
     border-color: #d43f3a;
+    border-radius: 30px;
+    padding: 6px 10px;
 }
 .btn--primary {
   background-color: var(--primary-600);
