@@ -108,6 +108,7 @@
   background-color: #fff;
   border-radius: 0.75rem;
   margin-bottom: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 .note-item__header {
@@ -165,4 +166,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.note-item__empty {
+  text-align: center;
+  color: var(--text-700);
+  font-size: 1.2rem;
+  font-weight: 700;
 }

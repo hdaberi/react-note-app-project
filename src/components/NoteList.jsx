@@ -16,7 +16,7 @@ function NoteList({ notes, deleteNoteHandler, onCompleteNote }) {
           ))
         ) : (
           <div className="note-item">
-            <p>You don't have any notes yet. Create your first note to get started!</p>
+            <p className="note-item__empty">You don't have any notes yet. Create your first note to get started!</p>
           </div>
         )}
       </div>
