@@ -73,10 +73,10 @@ select {
 .text-field {
   width: 100%;
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 30px;
   color: var(--text-700);
   font-size: 1rem;
-  border: 1px solid var(--text-400);
+  border: 1px solid var(--text-300);
 }   
 .text-field:focus {
   border-color: var(--primary-600);
@@ -101,7 +101,7 @@ select {
   padding: 12px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  border-radius: 4px;
+  border-radius: 30px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
