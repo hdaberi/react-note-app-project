@@ -4,7 +4,19 @@
   padding: 2rem;
   text-align: center;
 }
-
+:root {
+  --primary-bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --accent-admin: #ff5a5f;
+  --accent-moderator: #30c5ff;
+  --accent-contributor: #7b68ee;
+  --accent-mentor: #00c781;
+  --border-color: #e0e0e0;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 .note-header {
   display: flex;
   align-items: center;
@@ -26,6 +38,12 @@
 
 .add-new-note {
   width: 30%;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1rem;
 }
 
 .note-container {
@@ -37,15 +55,52 @@
   justify-content: space-between;
   color: var(--text-400);
   margin-bottom: 2rem;
+  position: relative;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1rem;
+}
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  color: #666;
+  transition: var(--transition);
+}
+.role-badge--uncompleted {
+  background-color: rgba(255, 90, 95, 0.1);
+  color: var(--accent-admin);
+  border: 1px solid rgba(255, 90, 95, 0.3);
+}
+.role-badge--completed {
+  background-color: rgba(0, 199, 129, 0.1);
+  color: var(--accent-mentor);
+  border: 1px solid rgba(0, 199, 129, 0.3);
+}
+.role-badge--all {
+  background-color: rgba(48, 197, 255, 0.1);
+  color: var(--accent-moderator);
+  border: 1px solid rgba(48, 197, 255, 0.3);
 }
 
 .note-status span {
   border-radius: 2rem;
   display: inline-block;
   background-color: var(--text-400);
-  padding: 0.2rem 0.3rem;
+  padding: 0.2rem 0.5rem;
   font-size: 0.75rem;
   color: var(--text-100);
+  margin-left: 0.5rem;
 }
 
 .note-item {
@@ -102,10 +157,10 @@
   color: var(--text-400);
   text-align: left;
 }
-.note-item__content{
+.note-item__content {
   text-align: left;
 }
-.note-item__tools{
+.note-item__tools {
   display: flex;
   align-items: center;
   justify-content: space-between;

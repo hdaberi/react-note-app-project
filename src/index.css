@@ -76,6 +76,11 @@ select {
   border-radius: 0.5rem;
   color: var(--text-700);
   font-size: 1rem;
+  border: 1px solid var(--text-400);
+}   
+.text-field:focus {
+  border-color: var(--primary-600);
+  box-shadow: 0 0 0 2px rgba(67, 56, 202, 0.2);
 }
 .btn {
   border-radius: 0.5rem;
@@ -93,7 +98,7 @@ select {
   cursor: pointer;
   background-image: none;
   border: 1px solid transparent;
-  padding: 6px 12px;
+  padding: 12px 12px;
   font-size: 14px;
   line-height: 1.42857143;
   border-radius: 4px;
@@ -101,6 +106,11 @@ select {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  transition: var(--transition);
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .btn--danger {
     color: #fff;

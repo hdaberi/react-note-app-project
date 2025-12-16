@@ -1,12 +1,19 @@
 function NoteStatuse({ notes }) {
   return (
-   
     <ul className="note-status">
-      <li><span>Total Notes: {notes.length}</span></li>
-      <li>Completed Notes: {notes.filter((note) => note.completed).length}</li>
-      <li>Pending Notes: {notes.filter((note) => !note.completed).length}</li>
+      <li className="role-badge role-badge--all">
+        Total Notes: <span>{notes.length}</span>
+      </li>
+      <li className="role-badge role-badge--completed">
+        Completed Notes:{" "}
+        <span>{notes.filter((note) => note.completed).length}</span>
+      </li>
+      <li className="role-badge role-badge--uncompleted">
+        Pending Notes:{" "}
+        <span>{notes.filter((note) => !note.completed).length}</span>
+      </li>
     </ul>
-  )
+  );
 }
 
-export default NoteStatuse
+export default NoteStatuse;
