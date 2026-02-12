@@ -5,6 +5,8 @@ import NoteHeader from "./components/NoteHeader";
 import "./App.css";
 function App() {
   const [notes, setNotes] = useState([]);
+  const [filterNotes, setFilterNotes] = useState("latest");
+
   const newNoteHandler = (newNote) => {
     setNotes((prevNote) => [...prevNote, newNote]);
   };
@@ -16,17 +18,34 @@ function App() {
       prevNote.map((note) =>
         note.id === Number(noteId)
           ? { ...note, completed: !note.completed }
-          : note
-      )
+          : note,
+      ),
     );
   };
+
+  let sortedNotes = [...notes];
+  if (filterNotes === "latest") {
+    sortedNotes.sort((a, b) => new Date(b.createAt) - new Date(a.createAt));
+  }
+  if (filterNotes === "erliast") {
+    sortedNotes.sort((a, b) => new Date(a.createAt) - new Date(b.createAt));
+  }
+  if (filterNotes === "completed") {
+    // تیک‌خورده‌ها بروند پایین، تیک‌نخورده‌ها بالا
+    sortedNotes.sort((a, b) => Number(b.completed) - Number(a.completed));
+  }
+
   return (
     <div className="container">
-      <NoteHeader notes={notes} />
+      <NoteHeader
+        notes={notes}
+        filterNotes={filterNotes}
+        setFilterNotes={setFilterNotes}
+      />
       <div className="note-app">
         <AddNewNote onAddNote={newNoteHandler} />
         <NoteList
-          notes={notes}
+          notes={sortedNotes}
           deleteNoteHandler={deleteNoteHandler}
           onCompleteNote={handleComplateNote}
         />

@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
-function NoteHeader({ notes }) {
-  const [selectedFilter, setSelectedFilter] = useState("latest");
-  const handleFilterChange = (e) => {
-    setSelectedFilter(e.target.value);
-  };
+function NoteHeader({ notes, filterNotes, setFilterNotes }) {
+
+ 
   return (
     <div className="note-header">
       <h1>My Note App ({notes.length})</h1>
       <div className="custom-select">
-        <select value={selectedFilter} className="note-header__select" onChange={handleFilterChange}>
+        <select value={filterNotes} className="note-header__select" onChange={(e)=>setFilterNotes(e.target.value)}>
           <option value="latest">Latest Notes</option>
           <option value="earliest">Earliest Notes</option>
           <option value="completed">Completed Notes</option>
