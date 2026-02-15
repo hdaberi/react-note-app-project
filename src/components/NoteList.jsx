@@ -1,3 +1,4 @@
+import Message from "./Message";
 import NoteStatuse from "./NoteStatuse";
 function NoteList({ notes, deleteNoteHandler, onCompleteNote }) {
   console.log(notes);
@@ -15,9 +16,13 @@ function NoteList({ notes, deleteNoteHandler, onCompleteNote }) {
             />
           ))
         ) : (
-          <div className="note-item">
-            <p className="note-item__empty">You don't have any notes yet. Create your first note to get started!</p>
-          </div>
+          <Message>
+            <span className="icon">&#8505;</span>
+            <p className="message-text">
+              You do not have any notes yet. Create your first note to get
+              started!
+            </p>
+          </Message>
         )}
       </div>
     </div>

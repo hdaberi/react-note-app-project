@@ -42,7 +42,9 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   padding: 1rem;
 }
 
@@ -60,7 +62,9 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   padding: 1rem;
 }
 .role-badge {
@@ -110,7 +114,31 @@
   margin-bottom: 1.5rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
-
+.message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  .message-text{
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2vw;
+    height: 2vh;
+    font-size: 1.5rem;
+    background-color: #ff5a5f;
+    padding: 1.5rem;
+    border-radius: .375rem;
+  }
+}
 .note-item__header {
   display: flex;
   align-items: center;
@@ -175,41 +203,41 @@
   font-weight: 700;
 }
 .custom-select {
-    min-width: 350px;
-    position: relative;
-  }
-  
-  .custom-select select {
-    appearance: none;
-    width: 100%;
-    font-size: 1.15rem;
-    padding: 0.675em 6em 0.675em 1em;
-    background-color: #fff;
-    border: 1px solid #caced1;
-    border-radius: 0.5rem;
-    color: #000;
-    cursor: pointer;
-  }
-  
-  .custom-select::before,
-  .custom-select::after {
-    --size: 0.3rem;
-    content: "";
-    position: absolute;
-    right: 1rem;
-    pointer-events: none;
-  }
-  
-  .custom-select::before {
-    border-left: var(--size) solid transparent;
-    border-right: var(--size) solid transparent;
-    border-bottom: var(--size) solid black;
-    top: 40%;
-  }
-  
-  .custom-select::after {
-    border-left: var(--size) solid transparent;
-    border-right: var(--size) solid transparent;
-    border-top: var(--size) solid black;
-    top: 55%;
-  }
+  min-width: 350px;
+  position: relative;
+}
+
+.custom-select select {
+  appearance: none;
+  width: 100%;
+  font-size: 1.15rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.5rem;
+  color: #000;
+  cursor: pointer;
+}
+
+.custom-select::before,
+.custom-select::after {
+  --size: 0.3rem;
+  content: "";
+  position: absolute;
+  right: 1rem;
+  pointer-events: none;
+}
+
+.custom-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
+}
+
+.custom-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
+}
