@@ -17,7 +17,7 @@ function NoteList({ notes, deleteNoteHandler, onCompleteNote }) {
           ))
         ) : (
           <Message>
-            <span className="icon">&#8505;</span>
+          
             <p className="message-text">
               You do not have any notes yet. Create your first note to get
               started!
