@@ -1,27 +1,35 @@
+import { useNotes, useNotesDispatch } from "../context/NotesContext";
 import Message from "./Message";
 import NoteStatuse from "./NoteStatuse";
-function NoteList({ notes, deleteNoteHandler, onCompleteNote }) {
+
+function NoteList({ filterNotes }) {
+  const notes = useNotes();
+
+  let sortedNotes = [...notes];
+  if (filterNotes === "latest") {
+    sortedNotes.sort((a, b) => new Date(b.createAt) - new Date(a.createAt));
+  }
+  if (filterNotes === "erliast") {
+    sortedNotes.sort((a, b) => new Date(a.createAt) - new Date(b.createAt));
+  }
+  if (filterNotes === "completed") {
+    // تیک‌خورده‌ها بروند پایین، تیک‌نخورده‌ها بالا
+    sortedNotes.sort((a, b) => Number(a.completed) - Number(b.completed));
+  }
 
   return (
     <div className="note-container">
-      <NoteStatuse notes={notes} />
+      <NoteStatuse />
       <div className="note-list">
-        {notes.length ? (
-          notes.map((note) => (
-            <NoteItem
-              key={note.id}
-              note={note}
-              onCompleteNote={onCompleteNote}
-              deleteNoteHandler={deleteNoteHandler}
-            />
-          ))
+        {sortedNotes.length ? (
+          sortedNotes.map((note) => <NoteItem key={note.id} note={note} />)
         ) : (
           <Message>
-          
-            <p className="message-text">
-              You do not have any notes yet. Create your first note to get
-              started!
-            </p>
+            ℹ️
+            <span className="message-text">
+              No Notes has already been added.
+            </span>{" "}
+            <span>🧐</span>
           </Message>
         )}
       </div>
@@ -31,7 +39,8 @@ function NoteList({ notes, deleteNoteHandler, onCompleteNote }) {
 
 export default NoteList;
 
-function NoteItem({ note, deleteNoteHandler, onCompleteNote }) {
+function NoteItem({ note }) {
+  const dispatch = useNotesDispatch();
   return (
     <div className={`note-item ${note.completed ? "completed" : ""}`}>
       <div className="note-item__header">
@@ -45,11 +54,13 @@ function NoteItem({ note, deleteNoteHandler, onCompleteNote }) {
             name={note.id}
             id={note.id}
             value={note.id}
-            onChange={(event) => onCompleteNote(event.target.value)}
+            onChange={(event) =>
+              dispatch({ type: "COMPLATE-NOTE", payload: event.target.id })
+            }
           />
           <button
             className="btn btn--danger"
-            onClick={() => deleteNoteHandler(note.id)}
+            onClick={() => dispatch({ type: "DELETE-NOTE", payload: note.id })}
           >
             Delete
           </button>

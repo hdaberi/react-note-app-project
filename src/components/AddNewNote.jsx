@@ -1,26 +1,28 @@
 import { useState } from "react";
-function AddNewNote({ onAddNote }) {
+import { useNotesDispatch } from "../context/NotesContext";
+export function AddNewNote() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const dispatch = useNotesDispatch();
 
   const addNewNoteHandler = (e) => {
     e.preventDefault();
     if (title && description) {
-      const newNote = 
-        {
-          title: title,
-          desc: description,
-          id: Date.now(),
-          completed: false,
-          createAt: new Date().toISOString(),
-        }
-      onAddNote(newNote);
+      const newNote = {
+        title: title,
+        desc: description,
+        id: Date.now(),
+        completed: false,
+        createAt: new Date().toISOString(),
+      };
+      dispatch({ type: "ADD-NOTE", payload: newNote });
       setTitle("");
       setDescription("");
     } else {
       alert("Please fill in the title and description");
     }
   };
+
   return (
     <div className="add-new-note">
       <h2 className="add-new-note-title">New Note Form</h2>
@@ -46,5 +48,3 @@ function AddNewNote({ onAddNote }) {
     </div>
   );
 }
-
-export default AddNewNote;

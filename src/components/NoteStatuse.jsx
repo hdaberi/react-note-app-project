@@ -1,17 +1,24 @@
-function NoteStatuse({ notes }) {
-  return (
+import { useNotes } from "../context/NotesContext";
 
+
+function NoteStatuse() {
+  const notes = useNotes();
+  // dervied state :
+  const allNotes = notes.length;
+  const completedNotes = notes.filter((note) => note.completed).length;
+  const unCompletedNotes = notes.filter((note) => !note.completed).length;
+  
+  return (
     <ul className="note-status">
       <li className="role-badge role-badge--all">
-        All Notes: <span>{notes.length}</span>
+        All Notes: <span>{allNotes}</span>
       </li>
       <li className="role-badge role-badge--completed">
-        Completed:{" "}
-        <span>{notes.filter((note) => note.completed).length}</span>
+        Completed: <span>{completedNotes}</span>
       </li>
       <li className="role-badge role-badge--uncompleted">
-        Uncompleted:{" "}
-        <span>{notes.filter((note) => !note.completed).length}</span>
+        Uncompleted:
+        <span>{unCompletedNotes}</span>
       </li>
     </ul>
   );
